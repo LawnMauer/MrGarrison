@@ -1,0 +1,34 @@
+; auto-Z macro to find Z-offset by comparing
+; nozzle and klicky's body height with the Z-endstop
+;
+
+var baseHotOffset = 0.35						; switch actuation distance
+
+G28												; home all first
+
+G1 Z10 F2400									; raise Z to pickup probe
+M401											; pickup klicky
+
+; probe nozzle to endstop
+G1 X235 Y355 F18000								; move nozzle above Z endstop
+G92 Z{move.axes[2].userPosition + 5}
+G30 K1 Z-9999									; probe nozzle on Z endstop
+G1 Z15 F2400									; move Z up
+
+; probe switch body to endstop
+G1 X231.5 Y336.3 F18000							; move klicky above Z endstop
+G30 K1 S-1										; probe klicky on Z endstop
+
+var oldOffset = sensors.probes[0].triggerHeight
+var newOffset = move.axes[2].userPosition + var.baseHotOffset
+
+echo "Potential new offset " ^ var.newOffset	; print new offset
+M402 P0											; retract klicky
+G28 Z											; re-home Z
+
+G1 Z10 F2400									; move Z up
+M291 P{"Update Z offset to " ^ var.newOffset ^ " from " ^ var.oldOffset ^ "?"} S3
+
+G31 K0 Z{var.newOffset}							; apply new Z offset
+
+M500 P10:31										; store tools and probes offset

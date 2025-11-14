@@ -1,0 +1,9 @@
+; --------------- Header ---------------
+text R0 C0 W63 F0 H1 T"Run Macro"
+image L"imgs/vline.img"
+button W64 F0 T"Back" A"return"
+image R11 C0 L"imgs/hline.img"
+
+
+; --------------- Show Macros ---------------
+files R15 C5 F0 N4 I"0:/macros/" A"M98 P#0"
