@@ -41,8 +41,8 @@ M569 P124.0 S1 D2										; toolboard drive 124.0 goes forwards using default d
 M584 X0 Y1 Z2:3:4:5 E124.0								; set drive mapping
 M350 X16 Y16 Z16 E16 I1									; configure microstepping with interpolation
 M92 X80.00 Y80.00 Z400.00 E710  						; set steps per mm
-M566 X600.00 Y600.00 Z240.00 E600.00					; set maximum instantaneous speed changes (mm/min)
-M203 X18000.00 Y18000.00 Z2400.00 E5000.00				; set maximum speeds (mm/min)
+M566 X450.00 Y450.00 Z250.00 E300.00					; set maximum instantaneous speed changes (mm/min)
+M203 X18000.00 Y18000.00 Z2400.00 E7200.00				; set maximum speeds (mm/min)
 M201 X5000.00 Y5000.00 Z120.00 E3200.00					; set accelerations (mm/s^2)
 M201.1 X1000.00 Y1000.00 Z100.00 E250.00				; set homing accelerations (mm/s^2)
 M906 X1200 Y1200 Z1200 E800 I40							; set motor currents (mA) and motor idle factor in per cent
