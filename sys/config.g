@@ -95,10 +95,10 @@ M950 F1 C"124.out1" Q50									; create fan 1 on pin fan1 and set its frequency
 M106 P1 C"Hotend Fan" S255 H1 T45						; set fan 1 value. Thermostatic control is turned on
 
 M950 F2 C"fan2" Q50										; create fan 2 on pin fan2 and set its frequency
-M106 P2 C"Motherboard Fan" X0.45 H3 T40				    ; set fan 2 value. Thermostatic control is turned on
+M106 P2 C"Motherboard Fan" X0.35 H3 T40				    ; set fan 2 value. Thermostatic control is turned on
 
 M950 F3 C"fan3" Q50										; create fan 3 on pin fan3 and set its frequency
-M106 P3 C"PSU Fan" X0.40 H3 T40 					    ; set fan 3 value. Thermostatic control is turned on
+M106 P3 C"PSU Fan" X0.35 H3 T40 					    ; set fan 3 value. Thermostatic control is turned on
 
 M950 F4 C"fan4" Q50										; create fan 4 on pin fan4 and set its frequency
 M106 P4 C"Extraction Fan" X0.35 H3 T40  				; set fan 4 value. Thermostatic control is turned on
